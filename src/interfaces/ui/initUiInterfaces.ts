@@ -4,7 +4,8 @@ const savedTheme = localStorage.getItem('theme');
 
 export const initUiStateInterface: UiStateInterface = {
     sideBar: false,
-    darkMode: savedTheme === 'dark'
+    darkMode: savedTheme === 'dark',
+    openModal: { open: false, title: '', width: 'md', component: null, args:{} }
 };
 
 export const initThemeConfig = (dark_theme: boolean): ThemeConfig => {

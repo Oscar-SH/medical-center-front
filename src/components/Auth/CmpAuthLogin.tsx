@@ -15,16 +15,7 @@ const CmpAuthLogin = () => {
                 }}>
                 <CmpAuthLoginForm />
             </Grid>
-            <Grid
-                size={8}
-                sx={{
-                    // color: 'white',
-                    // backgroundColor: 'rgba(22, 179, 100, 1)',
-                    // display: 'flex',
-                    // flexDirection: 'column',
-                    // justifyContent: 'center',
-                    // alignItems: 'center'
-                }}>
+            <Grid size={8}>
                 <CmpAuthLoginWelcome />
             </Grid>
         </Grid>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Card, CardContent, CardHeader, Stack, Typography } from '@mui/material';
 
-const CmpDashboard = () => {
+const CmpUsers = () => {
     return (
         <Card>
             <CardHeader
@@ -22,4 +22,4 @@ const CmpDashboard = () => {
     );
 };
 
-export default CmpDashboard;
+export default CmpUsers;

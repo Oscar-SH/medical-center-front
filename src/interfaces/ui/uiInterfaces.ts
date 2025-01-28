@@ -1,6 +1,17 @@
+import { Breakpoint } from "@mui/material";
+
 export interface UiStateInterface {
     sideBar: boolean;
     darkMode: boolean;
+    openModal: GeneralModalInterface;
+}
+
+export interface GeneralModalInterface {
+    args: Object;
+    open: boolean;
+    title: string;
+    width?: Breakpoint;
+    component: React.FunctionComponent<{args: Object}> | null;
 }
 
 export interface ThemeConfig {
