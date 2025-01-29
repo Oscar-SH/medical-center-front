@@ -1,22 +1,22 @@
-import { PropsErrorsInterface } from '../general/generalInterfaces';
+import { GeneralPropsErrorInterface } from '../../components/General/Interfaces/GeneralInterfaces';
 
 export interface LoginUserErrorsInterface {
-    user: PropsErrorsInterface;
-    password: PropsErrorsInterface;
+    user: GeneralPropsErrorInterface;
+    password: GeneralPropsErrorInterface;
 }
 
 export interface RegisterUserErrorsInterface {
-    name: PropsErrorsInterface;
-    first_surname: PropsErrorsInterface;
-    second_surname: PropsErrorsInterface;
-    rfc: PropsErrorsInterface;
-    phone: PropsErrorsInterface;
-    email: PropsErrorsInterface;
-    state: PropsErrorsInterface;
-    municipality: PropsErrorsInterface;
-    clinic: PropsErrorsInterface;
-    password: PropsErrorsInterface;
-    confirm_password: PropsErrorsInterface;
+    name: GeneralPropsErrorInterface;
+    first_surname: GeneralPropsErrorInterface;
+    second_surname: GeneralPropsErrorInterface;
+    rfc: GeneralPropsErrorInterface;
+    phone: GeneralPropsErrorInterface;
+    email: GeneralPropsErrorInterface;
+    state: GeneralPropsErrorInterface;
+    municipality: GeneralPropsErrorInterface;
+    clinic: GeneralPropsErrorInterface;
+    password: GeneralPropsErrorInterface;
+    confirm_password: GeneralPropsErrorInterface;
 }
 
 export interface ValidatePasswordInterface {
@@ -28,6 +28,6 @@ export interface ValidatePasswordInterface {
 }
 
 export interface ContactUsErrorsInterface {
-    email: PropsErrorsInterface;
-    message: PropsErrorsInterface;
+    email: GeneralPropsErrorInterface;
+    message: GeneralPropsErrorInterface;
 }

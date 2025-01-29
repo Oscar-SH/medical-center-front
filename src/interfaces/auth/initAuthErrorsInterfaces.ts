@@ -1,24 +1,24 @@
 import { RegisterUserInterface } from './authInterfaces';
-import { initPropsErrorsInterface } from '../general/initGeneralInterfaces';
+import { initGeneralPropsErrorInterface } from '../../components/General/Interfaces/initGeneralInterfaces';
 import { ContactUsErrorsInterface, LoginUserErrorsInterface, RegisterUserErrorsInterface } from './authErrorsInterfaces';
 
 export const initLoginUserErrorsInterface: LoginUserErrorsInterface = {
-    user: initPropsErrorsInterface,
-    password: initPropsErrorsInterface
+    user: initGeneralPropsErrorInterface,
+    password: initGeneralPropsErrorInterface
 };
 
 export const initRegisterUserErrorsInterface: RegisterUserErrorsInterface = {
-    name: initPropsErrorsInterface,
-    first_surname: initPropsErrorsInterface,
-    second_surname: initPropsErrorsInterface,
-    rfc: initPropsErrorsInterface,
-    phone: initPropsErrorsInterface,
-    email: initPropsErrorsInterface,
-    state: initPropsErrorsInterface,
-    municipality: initPropsErrorsInterface,
-    clinic: initPropsErrorsInterface,
-    password: initPropsErrorsInterface,
-    confirm_password: initPropsErrorsInterface
+    name: initGeneralPropsErrorInterface,
+    first_surname: initGeneralPropsErrorInterface,
+    second_surname: initGeneralPropsErrorInterface,
+    rfc: initGeneralPropsErrorInterface,
+    phone: initGeneralPropsErrorInterface,
+    email: initGeneralPropsErrorInterface,
+    state: initGeneralPropsErrorInterface,
+    municipality: initGeneralPropsErrorInterface,
+    clinic: initGeneralPropsErrorInterface,
+    password: initGeneralPropsErrorInterface,
+    confirm_password: initGeneralPropsErrorInterface
 };
 
 export const errorsMessagesRegister: RegisterUserInterface = {
@@ -36,6 +36,6 @@ export const errorsMessagesRegister: RegisterUserInterface = {
 };
 
 export const initContactUsErrorsInterface: ContactUsErrorsInterface = {
-    email: initPropsErrorsInterface,
-    message: initPropsErrorsInterface
+    email: initGeneralPropsErrorInterface,
+    message: initGeneralPropsErrorInterface
 };

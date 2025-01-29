@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
-import useForm from '../../../hooks/useForm';
-import { validateContactUsForm } from '../../../helpers/auth/contactUsHelper';
-import { initContactUsInterface } from '../../../interfaces/auth/initAuthInterfaces';
-import { initContactUsErrorsInterface } from '../../../interfaces/auth/initAuthErrorsInterfaces';
+import useForm from '../../../../hooks/useForm';
+import { validateContactUsForm } from '../../../../helpers/auth/contactUsHelper';
+import { initContactUsInterface } from '../../../../interfaces/auth/initAuthInterfaces';
+import { initContactUsErrorsInterface } from '../../../../interfaces/auth/initAuthErrorsInterfaces';
 import { Button, Card, CardContent, CardHeader, Container, Stack, TextField, Typography } from '@mui/material';
 
 const CmpSendMessage = () => {

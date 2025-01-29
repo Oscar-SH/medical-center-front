@@ -1,5 +1,5 @@
-import { ManageAccounts, Person, Search } from '@mui/icons-material';
-import { NavBarItemProps } from '../../interfaces/general/generalInterfaces';
+import { Accessibility, LockPerson, Person, PersonAdd, Search } from '@mui/icons-material';
+import { NavBarItemProps } from '../../components/General/Interfaces/GeneralInterfaces';
 
 export const navBarItems: NavBarItemProps[] = [
     {
@@ -8,12 +8,22 @@ export const navBarItems: NavBarItemProps[] = [
         route: '/search'
     },
     {
-        icon: <Person />,
-        label: 'Empleados',
-        route: '/employees'
+        icon: <PersonAdd />,
+        label: 'Medicos',
+        route: '/doctors'
     },
     {
-        icon: <ManageAccounts />,
+        icon: <Accessibility />,
+        label: 'Pacientes',
+        route: '/patients'
+    },
+    {
+        icon: <Person />,
+        label: 'Personas',
+        route: '/persons'
+    },
+    {
+        icon: <LockPerson />,
         label: 'Usuarios',
         route: '/users'
     },

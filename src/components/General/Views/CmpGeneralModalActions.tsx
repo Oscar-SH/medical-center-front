@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import { closeGeneralModal } from '../store/slices';
+import { closeGeneralModal } from '../../../store/slices';
 import { Button, DialogActions } from '@mui/material';
 
-const CmpVoidComponent = () => {
+const CmpGeneralModalActions = () => {
     const dispatch = useDispatch();
 
     const handleCloseModal = () => {
@@ -20,4 +20,4 @@ const CmpVoidComponent = () => {
     )
 }
 
-export default CmpVoidComponent
+export default CmpGeneralModalActions

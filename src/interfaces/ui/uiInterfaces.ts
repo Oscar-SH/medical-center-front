@@ -11,7 +11,7 @@ export interface GeneralModalInterface {
     open: boolean;
     title: string;
     width?: Breakpoint;
-    component: React.FunctionComponent<{args: Object}> | null;
+    component: React.FunctionComponent<any> | null;
 }
 
 export interface ThemeConfig {

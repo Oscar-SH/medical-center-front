@@ -1,10 +1,10 @@
 import React from 'react';
-import { RootState } from '../../store';
+import { RootState } from '../../../store';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft } from '@mui/icons-material';
-import { handleSideBar } from '../../store/slices';
+import { handleSideBar } from '../../../store/slices';
 import { useDispatch, useSelector } from 'react-redux';
-import { navBarItems } from '../../helpers/general/navBarHelper';
+import { navBarItems } from '../../../helpers/general/navBarHelper';
 import { Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack, Typography } from '@mui/material';
 
 const CmpGeneralSideBar = () => {

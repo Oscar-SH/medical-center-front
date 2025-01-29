@@ -1,29 +1,35 @@
 import React from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
-// import HomePage from '../pages/HomePage';
 import UsersPage from '../pages/UsersPage';
+import PersonsPage from '../pages/PersonsPage';
+import PatientsPage from '../pages/PatientsPage';
 import DashboardPage from '../pages/DashboardPage';
 import EmployeesPage from '../pages/EmployeesPage';
 
-import CmpUsers from '../components/Users/CmpUsers';
-// import CmpVoidComponent from '../components/CmpVoidComponent';
+import CmpUsers from '../components/Users/Views/CmpUsers';
 import CmpDashboard from '../components/Dashboard/CmpDashboard';
-import CmpEmployees from '../components/Employees/Views/CmpEmployees';
-import CmpGeneralLayout from '../components/General/CmpGeneralLayout';
+import CmpPersons from '../components/Persons/Views/CmpPersons';
+import CmpPatients from '../components/Patients/Views/CmpPatients';
+import CmpDoctors from '../components/Doctors/Views/CmpDoctors';
+import CmpGeneralLayout from '../components/General/Views/CmpGeneralLayout';
 
 const privateRoutes = createBrowserRouter([
-    // {
-    //     path: '/home',
-    //     element: <CmpGeneralLayout page={HomePage} children={CmpVoidComponent} />
-    // },
     {
         path: '/dashboard',
         element: <CmpGeneralLayout page={DashboardPage} children={CmpDashboard} />
     },
     {
-        path: '/employees',
-        element: <CmpGeneralLayout page={EmployeesPage} children={CmpEmployees} />
+        path: '/doctors',
+        element: <CmpGeneralLayout page={EmployeesPage} children={CmpDoctors} />
+    },
+    {
+        path: '/patients',
+        element: <CmpGeneralLayout page={PatientsPage} children={CmpPatients} />
+    },
+    {
+        path: '/persons',
+        element: <CmpGeneralLayout page={PersonsPage} children={CmpPersons} />
     },
     {
         path: '/users',

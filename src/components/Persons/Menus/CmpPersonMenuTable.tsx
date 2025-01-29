@@ -1,14 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import MenuIcon from '@mui/icons-material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RestoreIcon from '@mui/icons-material/Restore';
-import { IconButton, Menu, MenuItem } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import CmpEmployeeForm from '../Forms/CmpPersonForm';
 import { changeOpenModal } from '../../../store/slices';
-import CmpVoidComponent from '../../CmpVoidComponent';
+import { IconButton, Menu, MenuItem } from '@mui/material';
+import CmpPersonAlertForm from '../Forms/CmpPersonAlertForm';
+import { RowPersonInterface } from '../Interfaces/PersonsInterfaces';
 
-const CmpEmployeesMenuTable = () => {
+interface Props {
+    row: RowPersonInterface;
+}
+
+const CmpPersonMenuTable = ({ row }: Props) => {
     const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -22,10 +28,19 @@ const CmpEmployeesMenuTable = () => {
 
     const handleOpenEditForm = () => {
         dispatch(changeOpenModal({
-            component: CmpVoidComponent,
+            component: CmpEmployeeForm,
             open: true,
-            title: 'EDITAR MEDICO',
-            args: {}
+            title: 'EDITAR PERSONA',
+            args: { ...row }
+        }));
+    };
+
+    const handleOpenAlertEmployeeForm = (action: string) => {
+        dispatch(changeOpenModal({
+            component: CmpPersonAlertForm,
+            open: true,
+            title: `${action} PERSONA`,
+            args: {action}
         }));
     };
 
@@ -48,11 +63,11 @@ const CmpEmployeesMenuTable = () => {
                 slotProps={{ paper: { style: { width: '20ch' } } }}
             >
                 <MenuItem onClick={handleOpenEditForm}><EditIcon /> &nbsp; EDITAR</MenuItem>
-                <MenuItem><DeleteIcon /> &nbsp; ELIMINAR</MenuItem>
-                <MenuItem><RestoreIcon /> &nbsp; RECUPERAR</MenuItem>
+                <MenuItem onClick={() => handleOpenAlertEmployeeForm('ELIMINAR')}><DeleteIcon /> &nbsp; ELIMINAR</MenuItem>
+                <MenuItem onClick={() => handleOpenAlertEmployeeForm('RECUPERAR')}><RestoreIcon /> &nbsp; RECUPERAR</MenuItem>
             </Menu>
         </>
     );
 };
 
-export default CmpEmployeesMenuTable;
+export default CmpPersonMenuTable;

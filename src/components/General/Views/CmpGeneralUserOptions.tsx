@@ -1,8 +1,8 @@
 import React from 'react';
-import { RootState } from '../../store';
+import { RootState } from '../../../store';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTheme, logout } from '../../store/slices';
+import { changeTheme, logout } from '../../../store/slices';
 import { Brightness4, Brightness7, Settings, Logout } from '@mui/icons-material';
 import { MenuItem, IconButton, Box, Divider, ListItemIcon, MenuList, Popover, Typography } from '@mui/material';
 

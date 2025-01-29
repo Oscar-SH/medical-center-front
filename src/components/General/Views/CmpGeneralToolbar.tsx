@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { RootState } from '../../store';
+import { RootState } from '../../../store';
 import MenuIcon from '@mui/icons-material/Menu';
-import { handleSideBar } from '../../store/slices';
+import { handleSideBar } from '../../../store/slices';
 import { useDispatch, useSelector } from 'react-redux';
 import CmpGeneralUserOptions from './CmpGeneralUserOptions';
 import { Avatar, Box, IconButton, Stack, Typography } from '@mui/material';
