@@ -4,17 +4,17 @@ import EditIcon from '@mui/icons-material/Edit';
 import MenuIcon from '@mui/icons-material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RestoreIcon from '@mui/icons-material/Restore';
-import CmpEmployeeForm from '../Forms/CmpEmployeeForm';
+import CmpUserForm from '../Forms/CmpUserForm';
 import { changeOpenModal } from '../../../store/slices';
 import { IconButton, Menu, MenuItem } from '@mui/material';
-import { RowEmployeeInterface } from '../Interfaces/EmployeesInterfaces';
-import CmpEmployeeAlertForm from '../Forms/CmpEmployeeAlertForm';
+import { RowUserInterface } from '../Interfaces/UsersInterfaces';
+import CmpUserAlertForm from '../Forms/CmpUserAlertForm';
 
 interface Props {
-    row: RowEmployeeInterface;
+    row: RowUserInterface;
 }
 
-const CmpEmployeesMenuTable = ({ row }: Props) => {
+const CmpUsersMenuTable = ({ row }: Props) => {
     const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -28,18 +28,18 @@ const CmpEmployeesMenuTable = ({ row }: Props) => {
 
     const handleOpenEditForm = () => {
         dispatch(changeOpenModal({
-            component: CmpEmployeeForm,
+            component: CmpUserForm,
             open: true,
-            title: 'EDITAR MEDICO',
+            title: 'EDITAR USUARIO',
             args: { ...row }
         }));
     };
 
     const handleOpenAlertEmployeeForm = (action: string) => {
         dispatch(changeOpenModal({
-            component: CmpEmployeeAlertForm,
+            component: CmpUserAlertForm,
             open: true,
-            title: `${action} MEDICO`,
+            title: `${action} USUARIO`,
             args: {
                 action
             }
@@ -72,4 +72,4 @@ const CmpEmployeesMenuTable = ({ row }: Props) => {
     );
 };
 
-export default CmpEmployeesMenuTable;
+export default CmpUsersMenuTable;

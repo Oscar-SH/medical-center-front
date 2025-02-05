@@ -1,14 +1,19 @@
-import { DoctorInterface, ErrorsDoctorInterface } from './DoctorsInterfaces';
+import { CreateDoctorInterface, ErrorsCreateDoctorInterface } from './DoctorsInterfaces';
 import { initGeneralPropsErrorInterface } from '../../General/Interfaces/initGeneralInterfaces';
+import { initErrorsPersonInterface, initPersonInterface, msgsErrorsPersonInterface } from '../../Persons/Interfaces/initPersonsInterfaces';
 
-export const initDoctorInterface: DoctorInterface ={
-    id_person: -1,
+export const initDoctorInterface: CreateDoctorInterface ={
     observations: '',
-    professional_license: ''
+    professional_license: '',
+    ...initPersonInterface
 };
 
-export const initErrorsDoctorInterface: ErrorsDoctorInterface = {
-    id_person: initGeneralPropsErrorInterface,
-    observations: initGeneralPropsErrorInterface,
-    professional_license: initGeneralPropsErrorInterface
+export const initErrorsDoctorInterface: ErrorsCreateDoctorInterface = {
+    professional_license: initGeneralPropsErrorInterface,
+    ...initErrorsPersonInterface
+};
+
+export const msgsErrorsDoctorInterface = {
+    professional_license: '',
+    ...msgsErrorsPersonInterface
 };

@@ -1,6 +1,6 @@
 import { GeneralPropsErrorInterface } from '../../General/Interfaces/GeneralInterfaces';
 
-export interface PersonInterface{
+export interface PersonInterface {
     fullname: string;
     first_surname: string;
     second_surname: string;
@@ -11,12 +11,17 @@ export interface PersonInterface{
     state_birth: string;
 }
 
-export interface ErrorsEmployeeInterface{
-    id_person: GeneralPropsErrorInterface;
-    observations: GeneralPropsErrorInterface;
-    professional_license: GeneralPropsErrorInterface;
+export interface ErrorsPersonInterface {
+    fullname: GeneralPropsErrorInterface;
+    first_surname: GeneralPropsErrorInterface;
+    second_surname: GeneralPropsErrorInterface;
+    birthdate: GeneralPropsErrorInterface;
+    curp: GeneralPropsErrorInterface;
+    rfc: GeneralPropsErrorInterface;
+    sex: GeneralPropsErrorInterface;
+    state_birth: GeneralPropsErrorInterface;
 }
 
-export interface RowPersonInterface extends PersonInterface{
+export interface RowPersonInterface extends PersonInterface {
     id: number;
 }

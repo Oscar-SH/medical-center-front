@@ -1,14 +1,13 @@
 import { GeneralPropsErrorInterface } from '../../General/Interfaces/GeneralInterfaces';
+import { ErrorsPersonInterface, PersonInterface } from '../../Persons/Interfaces/PersonsInterfaces';
 
 export interface DoctorInterface{
-    id_person: number;
+    id_person?: number;
     observations: string;
     professional_license: string;
 }
 
 export interface ErrorsDoctorInterface{
-    id_person: GeneralPropsErrorInterface;
-    observations: GeneralPropsErrorInterface;
     professional_license: GeneralPropsErrorInterface;
 }
 
@@ -21,3 +20,7 @@ export interface RowDoctorInterface extends DoctorInterface{
     deleted_at?: string;
     persona: any;
 }
+
+export interface CreateDoctorInterface extends PersonInterface, DoctorInterface {}
+
+export interface ErrorsCreateDoctorInterface extends ErrorsPersonInterface, ErrorsDoctorInterface {}

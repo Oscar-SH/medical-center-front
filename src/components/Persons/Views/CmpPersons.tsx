@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
-import CmpEmployeeForm from '../Forms/CmpPersonForm';
+import CmpPersonForm from '../Forms/CmpPersonForm';
 import { changeOpenModal } from '../../../store/slices';
 import CmpPersonMenuTable from '../Menus/CmpPersonMenuTable';
 import { RowPersonInterface } from '../Interfaces/PersonsInterfaces';
@@ -26,7 +26,7 @@ const CmpPersons = () => {
     const handleOpenCreateEmployee = () => {
         dispatch(changeOpenModal({
             args: {},
-            component: CmpEmployeeForm,
+            component: CmpPersonForm,
             open: true,
             title: 'AGREGAR PERSONA'
         }));

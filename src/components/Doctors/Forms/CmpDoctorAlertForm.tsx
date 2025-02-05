@@ -18,7 +18,7 @@ const CmpDoctorAlertForm = ({ args }: Props) => {
                     ¿Está seguro de <b>{args.action}</b> a este medico?.
                 </Alert>
             </CardContent>
-            <CmpGeneralModalActions />
+            {/* <CmpGeneralModalActions /> */}
         </Stack>
     );
 };

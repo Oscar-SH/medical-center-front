@@ -1,46 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForm from '../../../hooks/useForm';
+import { CardContent, Stack, TextField } from '@mui/material';
+import CmpPersonForm from '../../Persons/Forms/CmpPersonForm';
+import { validateDoctorForm } from '../Helpers/validateDoctorForm';
 import CmpGeneralModalActions from '../../General/Views/CmpGeneralModalActions';
-import { Autocomplete, CardContent, Stack, TextField } from '@mui/material';
-import { RowDoctorInterface } from '../Interfaces/DoctorsInterfaces';
+import { initDoctorInterface, initErrorsDoctorInterface } from '../Interfaces/initDoctorInterfaces';
 
 interface Props {
-    args: RowDoctorInterface;
+    args: { id: number };
 }
 
 const CmpDoctorForm = ({ args }: Props) => {
-    const isEdit = Object.entries(args).length > 0;
+    const [errors, setErrors] = useState(initErrorsDoctorInterface);
+    const { values, handleInputChange } = useForm(initDoctorInterface);
 
-    // const {} = useForm
+    const handleSubmit = () => {
+        const { isOK, valuesErrors } = validateDoctorForm(values);
+        setErrors(valuesErrors);
+        console.log(values);
+    };
+
     return (
         <Stack>
             <CardContent>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <Stack spacing={2}>
-                        <Stack direction={'row'} justifyContent={'space-between'} spacing={2}>
-                            <Autocomplete
-                                fullWidth
-                                disabled={isEdit}
-                                options={[]}
-                                renderInput={(props) =>
-                                    < TextField
-                                        {...props}
-                                        label={'Persona'}
-                                    />
-                                }
-                            />
-                            <TextField
-                                fullWidth
-                                label={'Cedula profesional'}
-                            />
-                        </Stack>
+                        <CmpPersonForm errors={errors} values={values} handleInputChange={handleInputChange} />
+                        <TextField
+                            label={'Cedula profesional'}
+                            value={values.professional_license}
+                            onChange={(e) => handleInputChange(e.target.value.toUpperCase(), 'professional_license')}
+                            error={errors.professional_license.error}
+                            helperText={errors.professional_license.error && errors.professional_license.msg}
+                        />
                         <TextField
                             label={'Observaciones'}
+                            value={values.observations}
+                            onChange={(e) => handleInputChange(e.target.value.toUpperCase(), 'observations')}
                         />
                     </Stack>
                 </form>
             </CardContent>
-            <CmpGeneralModalActions />
+            <CmpGeneralModalActions handleSubmit={handleSubmit} />
         </Stack>
     );
 };

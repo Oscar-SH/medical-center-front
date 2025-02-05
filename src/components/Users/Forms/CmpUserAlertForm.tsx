@@ -6,7 +6,10 @@ interface Props {
     args: { action: string; };
 }
 
-const CmpEmployeeAlertForm = ({ args }: Props) => {
+const CmpUserAlertForm = ({ args }: Props) => {
+    const handleSubmit = () => {
+
+    };
 
     return (
         <Stack>
@@ -15,12 +18,12 @@ const CmpEmployeeAlertForm = ({ args }: Props) => {
                     color={args.action === 'ELIMINAR' ? 'warning' : 'success'}
                     severity={args.action === 'ELIMINAR' ? 'warning' : 'success'}
                 >
-                    ¿Está seguro de <b>{args.action}</b> a este medico?.
+                    ¿Está seguro de <b>{args.action}</b> a este usuario?.
                 </Alert>
             </CardContent>
-            <CmpGeneralModalActions />
+            <CmpGeneralModalActions handleSubmit={handleSubmit} />
         </Stack>
     );
 };
 
-export default CmpEmployeeAlertForm;
+export default CmpUserAlertForm;

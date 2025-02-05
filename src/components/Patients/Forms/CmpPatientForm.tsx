@@ -40,7 +40,7 @@ const CmpPatientForm = ({ args }: Props) => {
                     </Stack>
                 </form>
             </CardContent>
-            <CmpGeneralModalActions />
+            {/* <CmpGeneralModalActions /> */}
         </Stack>
     );
 };

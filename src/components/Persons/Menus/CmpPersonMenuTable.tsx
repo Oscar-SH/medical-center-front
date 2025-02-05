@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import MenuIcon from '@mui/icons-material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RestoreIcon from '@mui/icons-material/Restore';
-import CmpEmployeeForm from '../Forms/CmpPersonForm';
+import CmpPersonForm from '../Forms/CmpPersonForm';
 import { changeOpenModal } from '../../../store/slices';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 import CmpPersonAlertForm from '../Forms/CmpPersonAlertForm';
@@ -28,7 +28,7 @@ const CmpPersonMenuTable = ({ row }: Props) => {
 
     const handleOpenEditForm = () => {
         dispatch(changeOpenModal({
-            component: CmpEmployeeForm,
+            component: CmpPersonForm,
             open: true,
             title: 'EDITAR PERSONA',
             args: { ...row }

@@ -2,13 +2,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import MenuIcon from '@mui/icons-material/Menu';
+import CmpDoctorForm from '../Forms/CmpDoctorForm';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RestoreIcon from '@mui/icons-material/Restore';
-import CmpDoctorForm from '../Forms/CmpDoctorForm';
 import { changeOpenModal } from '../../../store/slices';
 import { IconButton, Menu, MenuItem } from '@mui/material';
-import { RowDoctorInterface } from '../Interfaces/DoctorsInterfaces';
 import CmpDoctorAlertForm from '../Forms/CmpDoctorAlertForm';
+import { RowDoctorInterface } from '../Interfaces/DoctorsInterfaces';
 
 interface Props {
     row: RowDoctorInterface;
@@ -19,19 +19,16 @@ const CmpDoctorsMenuTable = ({ row }: Props) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => { setAnchorEl(event.currentTarget); };
+
+    const handleClose = () => { setAnchorEl(null); };
 
     const handleOpenEditForm = () => {
         dispatch(changeOpenModal({
             component: CmpDoctorForm,
             open: true,
             title: 'EDITAR MEDICO',
-            args: { ...row }
+            args: { id: row.id }
         }));
     };
 
@@ -40,9 +37,7 @@ const CmpDoctorsMenuTable = ({ row }: Props) => {
             component: CmpDoctorAlertForm,
             open: true,
             title: `${action} MEDICO`,
-            args: {
-                action
-            }
+            args: { action }
         }));
     };
 
