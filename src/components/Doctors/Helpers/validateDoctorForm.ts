@@ -6,7 +6,7 @@ export const validateDoctorForm = (values: CreateDoctorInterface) => {
     let counter = 0;
     let isOK = false;
     let valuesErrors = initErrorsDoctorInterface;
-    const indexes = Object.keys(values) as (keyof ErrorsCreateDoctorInterface)[];
+    const indexes = Object.keys(valuesErrors) as (keyof ErrorsCreateDoctorInterface)[];
 
     for (const index of indexes) {
         if (typeof (values[index]) === 'string') {

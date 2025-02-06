@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Autocomplete, Stack, TextField } from '@mui/material';
 import { CreateDoctorInterface } from '../../Doctors/Interfaces/DoctorsInterfaces';
 import { ErrorsPersonInterface, PersonInterface } from '../Interfaces/PersonsInterfaces';
@@ -18,7 +19,7 @@ const CmpPersonForm = ({ errors, values, handleInputChange }: Props) => {
                     <TextField
                         fullWidth
                         type={'date'}
-                        value={values.birthdate}
+                        value={moment(values.birthdate).format('YYYY-MM-DD')}
                         label={'Fecha de nacimiento'}
                         slotProps={{ inputLabel: { shrink: true } }}
                         onChange={(e) => handleInputChange(e.target.value, 'birthdate')}
@@ -74,7 +75,7 @@ const CmpPersonForm = ({ errors, values, handleInputChange }: Props) => {
                     <Autocomplete
                         fullWidth
                         value={values.sex}
-                        options={['MASCULINO', 'FEMENINO']}
+                        options={['HOMBRE', 'MUJER']}
                         onChange={(e, value) => handleInputChange(value ?? '', 'sex')}
                         renderInput={(props) =>
                             <TextField

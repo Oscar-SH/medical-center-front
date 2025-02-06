@@ -6,22 +6,11 @@ import { changeOpenModal } from '../../../store/slices';
 import CmpDoctorsMenuTable from '../Menus/CmpDoctorsMenuTable';
 import { RowDoctorInterface } from '../Interfaces/DoctorsInterfaces';
 import { Button, Card, CardContent, CardHeader, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { useGetDoctorsTableQuery } from '../../../store/apis/doctorsApi';
 
 const CmpDoctors = () => {
     const dispatch = useDispatch();
-    const employees: RowDoctorInterface[] = [
-        {
-            id: 1,
-            matricula: 0,
-            active: false,
-            created_at: '',
-            updated_at: '',
-            persona: null,
-            id_person: 0,
-            observations: '',
-            professional_license: ''
-        }
-    ];
+    const { data: doctors } = useGetDoctorsTableQuery({ id_doctor: -1 });
 
     const handleOpenCreateEmployee = () => {
         dispatch(changeOpenModal({
@@ -44,7 +33,7 @@ const CmpDoctors = () => {
                 }
             />
             <CardContent>
-                <TableContainer sx={{maxHeight: '60vh'}}>
+                <TableContainer sx={{ maxHeight: '60vh' }}>
                     <Table size={'small'} stickyHeader>
                         <TableHead>
                             <TableRow>
@@ -57,14 +46,14 @@ const CmpDoctors = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {employees.map((employee, i) => (
+                            {(doctors && doctors.data) && doctors.data.map((doctor, i) => (
                                 <TableRow key={`row-employee-${i}`}>
-                                    <TableCell><CmpDoctorsMenuTable row={employee}/></TableCell>
-                                    <TableCell>{employee.matricula}</TableCell>
-                                    <TableCell>{employee.professional_license}</TableCell>
-                                    <TableCell>{employee.persona}</TableCell>
-                                    <TableCell>{employee.observations}</TableCell>
-                                    <TableCell>{employee.active ? 'ACTIVO': 'BAJA'}</TableCell>
+                                    <TableCell><CmpDoctorsMenuTable row={doctor} /></TableCell>
+                                    <TableCell>{doctor.matricula}</TableCell>
+                                    <TableCell>{doctor.professional_license}</TableCell>
+                                    <TableCell>{doctor.fullperson}</TableCell>
+                                    <TableCell>{doctor.observations}</TableCell>
+                                    <TableCell>{doctor.deleted_at ? 'BAJA' : 'ACTIVO'}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

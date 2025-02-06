@@ -14,13 +14,26 @@ export interface ErrorsDoctorInterface{
 export interface RowDoctorInterface extends DoctorInterface{
     id: number;
     matricula: number;
-    active: boolean;
     created_at: string;
     updated_at: string;
     deleted_at?: string;
-    persona: any;
+    fullperson: string;
 }
 
 export interface CreateDoctorInterface extends PersonInterface, DoctorInterface {}
 
+export interface UpdateDoctorInterface extends CreateDoctorInterface {
+    id: number;
+    id_person: number;
+}
+
 export interface ErrorsCreateDoctorInterface extends ErrorsPersonInterface, ErrorsDoctorInterface {}
+
+export interface ResponseDoctorsInterface{
+    count: number;
+    data: RowDoctorInterface[];
+}
+
+export interface ResponseFindDoctorInterface{
+    data: CreateDoctorInterface;
+}

@@ -9,6 +9,7 @@ import { Button, Card, CardContent, CardHeader, Stack, Table, TableBody, TableCe
 
 const CmpUsers = () => {
     const dispatch = useDispatch();
+    const { data } = { data: [] };
     const users: RowUserInterface[] = [
         {
             id: 1,
@@ -40,7 +41,7 @@ const CmpUsers = () => {
                 }
             />
             <CardContent>
-                <TableContainer sx={{maxHeight: '60vh'}}>
+                <TableContainer sx={{ maxHeight: '60vh' }}>
                     <Table size={'small'} stickyHeader>
                         <TableHead>
                             <TableRow>
@@ -53,10 +54,10 @@ const CmpUsers = () => {
                         <TableBody>
                             {users.map((user, i) => (
                                 <TableRow key={`row-employee-${i}`}>
-                                    <TableCell><CmpUsersMenuTable row={user}/></TableCell>
+                                    <TableCell><CmpUsersMenuTable row={user} /></TableCell>
                                     <TableCell>{user.persona}</TableCell>
                                     <TableCell>{user.email}</TableCell>
-                                    <TableCell>{user.deleted_at ? 'BAJA': 'ACTIVO'}</TableCell>
+                                    <TableCell>{user.deleted_at ? 'BAJA' : 'ACTIVO'}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

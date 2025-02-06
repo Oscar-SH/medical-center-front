@@ -37,7 +37,7 @@ const CmpDoctorsMenuTable = ({ row }: Props) => {
             component: CmpDoctorAlertForm,
             open: true,
             title: `${action} MEDICO`,
-            args: { action }
+            args: { action, id: row.id }
         }));
     };
 
@@ -59,9 +59,15 @@ const CmpDoctorsMenuTable = ({ row }: Props) => {
                 MenuListProps={{ 'aria-labelledby': 'long-button' }}
                 slotProps={{ paper: { style: { width: '20ch' } } }}
             >
-                <MenuItem onClick={handleOpenEditForm}><EditIcon /> &nbsp; EDITAR</MenuItem>
-                <MenuItem onClick={() => handleOpenAlertEmployeeForm('ELIMINAR')}><DeleteIcon /> &nbsp; ELIMINAR</MenuItem>
-                <MenuItem onClick={() => handleOpenAlertEmployeeForm('RECUPERAR')}><RestoreIcon /> &nbsp; RECUPERAR</MenuItem>
+                {!row.deleted_at ?
+                    [
+                        <>
+                            <MenuItem key={'menu-doctors-edit'} onClick={handleOpenEditForm}><EditIcon /> &nbsp; EDITAR</MenuItem>
+                            <MenuItem key={'menu-doctors-delete'} onClick={() => handleOpenAlertEmployeeForm('ELIMINAR')}><DeleteIcon /> &nbsp; ELIMINAR</MenuItem>
+                        </>
+                    ] :
+                    <MenuItem onClick={() => handleOpenAlertEmployeeForm('RECUPERAR')}><RestoreIcon /> &nbsp; RECUPERAR</MenuItem>
+                }
             </Menu>
         </>
     );
