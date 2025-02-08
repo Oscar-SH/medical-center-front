@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
-import useForm from '../../../hooks/useForm';
+import useForm from '../../../../hooks/useForm';
 import CmpLoginRegisterPasswords from './CmpLoginRegisterPasswords';
 import CmpLoginRegisterPersonalData from './CmpLoginRegisterPersonalData';
-import { validateRegisterForm } from '../../../helpers/auth/registerHelper';
-import { initRegisterUserInterface } from '../../../interfaces/auth/initAuthInterfaces';
-import { ValidatePasswordInterface } from '../../../interfaces/auth/authErrorsInterfaces';
-import { initRegisterUserErrorsInterface } from '../../../interfaces/auth/initAuthErrorsInterfaces';
+import { ValidatePasswordInterface } from '../../Interfaces/authInterfaces';
+import { validateRegisterForm } from '../../Helpers/registerHelper';
 import { Button, Card, CardContent, CardHeader, Container, Stack, Typography } from '@mui/material';
+import { initRegisterUserErrorsInterface, initRegisterUserInterface } from '../../Interfaces/initAuthInterfaces';
 
 const CmpLoginRegister = () => {
     const { enqueueSnackbar } = useSnackbar();

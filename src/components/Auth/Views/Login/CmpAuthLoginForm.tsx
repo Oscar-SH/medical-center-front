@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useDispatch } from 'react-redux';
-import useForm from '../../hooks/useForm';
-import { login } from '../../store/slices';
+import useForm from '../../../../hooks/useForm';
+import { login } from '../../../../store/slices';
 import { useNavigate } from 'react-router-dom';
-import { validateLoginForm } from '../../helpers/auth/loginHelper';
-import { initLoginUserInterface } from '../../interfaces/auth/initAuthInterfaces';
-import { initLoginUserErrorsInterface } from '../../interfaces/auth/initAuthErrorsInterfaces';
+import { validateLoginForm } from '../../Helpers/loginHelper';
+import { initLoginUserErrorsInterface, initLoginUserInterface } from '../../Interfaces/initAuthInterfaces';
 import { TextField, Button, Typography, Container, Stack,  Box, Card, CardContent, CardHeader } from "@mui/material";
 
 const CmpAuthLoginForm = () => {

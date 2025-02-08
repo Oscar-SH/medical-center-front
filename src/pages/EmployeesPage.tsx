@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@mui/material';
-import { PagesPropsInterface } from '../interfaces/pages/PagesInterface';
+import { PagesPropsInterface } from '../interfaces/PagesInterface';
 
 const EmployeesPage = ({ children: CmpComponent, ...rest }: PagesPropsInterface) => {
     return (

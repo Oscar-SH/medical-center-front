@@ -24,4 +24,26 @@ export interface ErrorsPersonInterface {
 
 export interface RowPersonInterface extends PersonInterface {
     id: number;
+    created_at: string;
+    updated_at: string;
+    deleted_at?: string;
+}
+export interface UpdatePersonInterface extends PersonInterface {
+    id: number;
+}
+
+export interface ResponsePersonInterface {
+    count: number;
+    data: RowPersonInterface[];
+}
+
+export interface ResponseFindPersonInterface {
+    data: PersonInterface;
+}
+
+export interface ParamsPersonInterface {
+    page: number;
+    text: string;
+    page_size: number;
+    isActives: boolean;
 }

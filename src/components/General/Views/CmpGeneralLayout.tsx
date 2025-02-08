@@ -3,7 +3,8 @@ import { Stack } from '@mui/material';
 import CmpGeneralModal from './CmpGeneralModal';
 import CmpGeneralSideBar from './CmpGeneralSideBar';
 import CmpGeneralToolbar from './CmpGeneralToolbar';
-import { PagesPropsInterface } from '../../../interfaces/pages/PagesInterface';
+import { PagesPropsInterface } from '../../../interfaces/PagesInterface';
+import CmpGeneralDrawer from './CmpGeneralDrawer';
 
 interface Props {
     children: () => JSX.Element;
@@ -11,15 +12,16 @@ interface Props {
 }
 
 const CmpGeneralLayout = ({ page: CmpComponent, ...rest }: Props) => {
-    
+
     return (
         <Stack flexGrow={1} sx={{ p: 2 }}>
-            <CmpGeneralModal/>
+            <CmpGeneralModal />
             <CmpGeneralToolbar />
             <CmpGeneralSideBar />
             <Stack flexGrow={1} justifyContent={'center'}>
                 <CmpComponent {...rest} />
             </Stack>
+            <CmpGeneralDrawer />
         </Stack>
     );
 };

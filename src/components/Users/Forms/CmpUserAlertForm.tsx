@@ -21,7 +21,7 @@ const CmpUserAlertForm = ({ args }: Props) => {
                     ¿Está seguro de <b>{args.action}</b> a este usuario?.
                 </Alert>
             </CardContent>
-            <CmpGeneralModalActions handleSubmit={handleSubmit} />
+            {/* <CmpGeneralModalActions handleSubmit={handleSubmit} /> */}
         </Stack>
     );
 };

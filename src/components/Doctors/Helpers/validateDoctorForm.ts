@@ -1,5 +1,5 @@
 import { CreateDoctorInterface, ErrorsCreateDoctorInterface } from "../Interfaces/DoctorsInterfaces";
-import { validateNullStrings } from "../../../helpers/general/validateDataByIndex";
+import { validateNullStrings } from "../../../helpers/validateDataByIndex";
 import { initErrorsDoctorInterface, msgsErrorsDoctorInterface } from "../Interfaces/initDoctorInterfaces";
 
 export const validateDoctorForm = (values: CreateDoctorInterface) => {

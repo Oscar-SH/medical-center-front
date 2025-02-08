@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initUiStateInterface } from '../../../interfaces/ui/initUiInterfaces';
-import { GeneralModalInterface } from '../../../interfaces/ui/uiInterfaces';
+import { initUiStateInterface } from '../../../interfaces/Redux/initUiInterfaces';
+import { GeneralDrawerInterface, GeneralModalInterface } from '../../../components/General/Interfaces/GeneralInterfaces';
 
 const uiSlice = createSlice({
     name: 'ui',
@@ -18,7 +18,13 @@ const uiSlice = createSlice({
         },
         closeGeneralModal: (state) => {
             state.openModal = initUiStateInterface.openModal;
-        }
+        },
+        changeOpenDrawer: (state, action: PayloadAction<GeneralDrawerInterface>) => {
+            state.openDrawer = action.payload;
+        },
+        closeGeneralDrawer: (state) => {
+            state.openDrawer = initUiStateInterface.openDrawer;
+        },
     }
 });
 
@@ -26,7 +32,9 @@ export const {
     changeTheme,
     handleSideBar,
     changeOpenModal,
-    closeGeneralModal
+    closeGeneralModal,
+    changeOpenDrawer,
+    closeGeneralDrawer
 } = uiSlice.actions;
 
 export default uiSlice.reducer;

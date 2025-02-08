@@ -1,17 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 import { Autocomplete, Stack, TextField } from '@mui/material';
-import { CreateDoctorInterface } from '../../Doctors/Interfaces/DoctorsInterfaces';
 import { ErrorsPersonInterface, PersonInterface } from '../Interfaces/PersonsInterfaces';
 
 interface Props {
     errors: ErrorsPersonInterface;
-    values: CreateDoctorInterface;
-    handleInputChange: (value: string | number, name: keyof PersonInterface) => void;
+    values: PersonInterface;
+    handleInputChange: (value: string, name: keyof PersonInterface) => void;
 }
 
 const CmpPersonForm = ({ errors, values, handleInputChange }: Props) => {
-
     return (
         <Stack>
             <Stack spacing={2}>

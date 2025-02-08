@@ -42,7 +42,7 @@ const CmpUserForm = ({ args }: Props) => {
                     </Stack>
                 </form>
             </CardContent>
-            <CmpGeneralModalActions handleSubmit={handleSubmit} />
+            {/* <CmpGeneralModalActions handleSubmit={handleSubmit} /> */}
         </Stack>
     );
 };

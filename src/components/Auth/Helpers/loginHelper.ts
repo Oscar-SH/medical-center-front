@@ -1,5 +1,5 @@
-import { LoginUserInterface } from '../../interfaces/auth/authInterfaces';
-import { initLoginUserErrorsInterface } from '../../interfaces/auth/initAuthErrorsInterfaces';
+import { LoginUserInterface } from "../Interfaces/authInterfaces";
+import { initLoginUserErrorsInterface } from "../Interfaces/initAuthInterfaces";
 
 export const validateLoginForm = (values: LoginUserInterface) => {
     let counter = 0;

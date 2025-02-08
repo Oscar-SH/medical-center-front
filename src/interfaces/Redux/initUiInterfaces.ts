@@ -1,11 +1,14 @@
-import { ThemeConfig, UiStateInterface } from "./uiInterfaces";
+import { ThemeConfig } from '../ConfigInterface';
+import { UiStateInterface } from './UIInterfaces';
 
 const savedTheme = localStorage.getItem('theme');
 
 export const initUiStateInterface: UiStateInterface = {
     sideBar: false,
     darkMode: savedTheme === 'dark',
-    openModal: { open: false, title: '', width: 'md', component: null, args:{} }
+    openDrawer: { open: false, title: '', component: null },
+    openModal: { open: false, title: '', width: 'md', component: null, args: {} }
+
 };
 
 export const initThemeConfig = (dark_theme: boolean): ThemeConfig => {

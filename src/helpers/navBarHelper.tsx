@@ -1,29 +1,29 @@
-import { NavBarItemProps } from '../../components/General/Interfaces/GeneralInterfaces';
+import { NavBarItemProps } from '../components/General/Interfaces/GeneralInterfaces';
 import { Accessibility, LockPerson, Person, PersonAdd, Search } from '@mui/icons-material';
 
 export const navBarItems: NavBarItemProps[] = [
     {
-        icon: <Search />,
+        icon: Search,
         label: 'Buscar expediente',
         route: '/search'
     },
     {
-        icon: <PersonAdd />,
+        icon: PersonAdd,
         label: 'Medicos',
         route: '/doctors'
     },
     {
-        icon: <Accessibility />,
+        icon: Accessibility,
         label: 'Pacientes',
         route: '/patients'
     },
-    // {
-    //     icon: <Person />,
-    //     label: 'Personas',
-    //     route: '/persons'
-    // },
     {
-        icon: <LockPerson />,
+        icon: Person,
+        label: 'Personas',
+        route: '/persons'
+    },
+    {
+        icon: LockPerson,
         label: 'Usuarios',
         route: '/users'
     },

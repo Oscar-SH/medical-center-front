@@ -1,7 +1,6 @@
-import { validateNullStrings } from '../general/validateDataByIndex';
-import { RegisterUserInterface } from '../../interfaces/auth/authInterfaces';
-import { ValidatePasswordInterface } from '../../interfaces/auth/authErrorsInterfaces';
-import { errorsMessagesRegister, initRegisterUserErrorsInterface } from '../../interfaces/auth/initAuthErrorsInterfaces';
+import { validateNullStrings } from '../../../helpers/validateDataByIndex';
+import { RegisterUserInterface, ValidatePasswordInterface } from '../Interfaces/authInterfaces';
+import { initRegisterUserErrorsInterface, errorsMessagesRegister } from '../Interfaces/initAuthInterfaces';
 
 export const validateRegisterForm = (values: RegisterUserInterface, validates: ValidatePasswordInterface) => {
     let counter = 0;

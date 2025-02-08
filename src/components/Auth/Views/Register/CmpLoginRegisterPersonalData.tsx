@@ -1,7 +1,6 @@
 import React from 'react';
 import { Autocomplete, Stack, TextField } from '@mui/material';
-import { RegisterUserInterface } from '../../../interfaces/auth/authInterfaces';
-import { RegisterUserErrorsInterface } from '../../../interfaces/auth/authErrorsInterfaces';
+import { RegisterUserErrorsInterface, RegisterUserInterface } from '../../Interfaces/authInterfaces';
 
 interface Props {
     errors: RegisterUserErrorsInterface;

@@ -1,16 +1,24 @@
-import uiSlice from './slices/ui/uiSlice';
-import { doctorsApi } from './apis/doctorsApi';
-import authSlice from './slices/auth/authSlice';
 import { configureStore } from '@reduxjs/toolkit';
+
+import { doctorsApi, personsApi } from './apis';
+
+import uiSlice from './slices/ui/uiSlice';
+import authSlice from './slices/auth/authSlice';
+import tablesSlice from './slices/tables/tablesSlice';
+
+
 
 export const store = configureStore({
     reducer: {
         auth: authSlice,
         ui: uiSlice,
-        [doctorsApi.reducerPath]: doctorsApi.reducer
+        tables: tablesSlice,
+        [doctorsApi.reducerPath]: doctorsApi.reducer,
+        [personsApi.reducerPath]: personsApi.reducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(
-        doctorsApi.middleware
+        doctorsApi.middleware,
+        personsApi.middleware
     )
 });
 

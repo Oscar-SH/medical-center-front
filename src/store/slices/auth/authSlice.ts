@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserStateInterface } from '../../../interfaces/auth/authInterfaces';
-import { initAuthStateInterface } from '../../../interfaces/auth/initAuthInterfaces';
+import { UserStateInterface } from '../../../components/Auth/Interfaces/authInterfaces';
+import { initAuthStateInterface } from '../../../components/Auth/Interfaces/initAuthInterfaces';
 
 const authSlice = createSlice({
     name: 'auth',

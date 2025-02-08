@@ -1,7 +1,7 @@
-import { PersonInterface, ErrorsPersonInterface } from './PersonsInterfaces';
 import { initGeneralPropsErrorInterface } from '../../General/Interfaces/initGeneralInterfaces';
+import { PersonInterface, ErrorsPersonInterface, ParamsPersonInterface } from './PersonsInterfaces';
 
-export const initPersonInterface: PersonInterface ={
+export const initPersonInterface: PersonInterface = {
     fullname: '',
     first_surname: '',
     second_surname: '',
@@ -33,3 +33,10 @@ export const msgsErrorsPersonInterface = {
     sex: 'Elije un genero.',
     state_birth: 'Ingresa estado de nacimiento.'
 };
+
+export const initParamsPersonInterface: ParamsPersonInterface = {
+    page: 1,
+    text: '',
+    page_size: 10,
+    isActives: true
+}

@@ -10,7 +10,7 @@ import { RouterProvider } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { CssBaseline, GlobalStyles, Stack } from '@mui/material';
 import { changeInLineStatus, changeTheme } from '../store/slices';
-import { initThemeConfig } from '../interfaces/ui/initUiInterfaces';
+import { initThemeConfig } from '../interfaces/Redux/initUiInterfaces';
 
 const AppRouter = () => {
     const dispatch = useDispatch();

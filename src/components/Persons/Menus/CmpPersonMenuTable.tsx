@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import KeyIcon from '@mui/icons-material/Key';
 import EditIcon from '@mui/icons-material/Edit';
 import MenuIcon from '@mui/icons-material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RestoreIcon from '@mui/icons-material/Restore';
-import CmpPersonForm from '../Forms/CmpPersonForm';
 import { changeOpenModal } from '../../../store/slices';
+import CmpPersonFormOnly from '../Forms/CmpPersonFormOnly';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 import CmpPersonAlertForm from '../Forms/CmpPersonAlertForm';
 import { RowPersonInterface } from '../Interfaces/PersonsInterfaces';
@@ -28,7 +29,7 @@ const CmpPersonMenuTable = ({ row }: Props) => {
 
     const handleOpenEditForm = () => {
         dispatch(changeOpenModal({
-            component: CmpPersonForm,
+            component: CmpPersonFormOnly,
             open: true,
             title: 'EDITAR PERSONA',
             args: { ...row }
@@ -40,7 +41,7 @@ const CmpPersonMenuTable = ({ row }: Props) => {
             component: CmpPersonAlertForm,
             open: true,
             title: `${action} PERSONA`,
-            args: {action}
+            args: { action, id: row.id }
         }));
     };
 
@@ -62,9 +63,16 @@ const CmpPersonMenuTable = ({ row }: Props) => {
                 MenuListProps={{ 'aria-labelledby': 'long-button' }}
                 slotProps={{ paper: { style: { width: '20ch' } } }}
             >
-                <MenuItem onClick={handleOpenEditForm}><EditIcon /> &nbsp; EDITAR</MenuItem>
-                <MenuItem onClick={() => handleOpenAlertEmployeeForm('ELIMINAR')}><DeleteIcon /> &nbsp; ELIMINAR</MenuItem>
-                <MenuItem onClick={() => handleOpenAlertEmployeeForm('RECUPERAR')}><RestoreIcon /> &nbsp; RECUPERAR</MenuItem>
+                {!row.deleted_at ?
+                    [
+                        <>
+                            <MenuItem sx={{ fontSize: 12 }} onClick={handleOpenEditForm} key={'menu-persons-edit'}><EditIcon /> &nbsp; EDITAR</MenuItem>
+                            <MenuItem sx={{ fontSize: 12 }} onClick={() => handleOpenAlertEmployeeForm('ELIMINAR')} key={'menu-persons-delete'}><DeleteIcon /> &nbsp; ELIMINAR</MenuItem>
+                            <MenuItem sx={{ fontSize: 12 }}><KeyIcon /> &nbsp; ASIGNAR USUARIO</MenuItem>
+                        </>
+                    ] :
+                    <MenuItem onClick={() => handleOpenAlertEmployeeForm('RECUPERAR')}><RestoreIcon /> &nbsp; RECUPERAR</MenuItem>
+                }
             </Menu>
         </>
     );

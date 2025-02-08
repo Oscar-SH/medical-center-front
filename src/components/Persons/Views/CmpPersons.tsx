@@ -1,35 +1,42 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { RootState } from '../../../store';
 import AddIcon from '@mui/icons-material/Add';
-import CmpPersonForm from '../Forms/CmpPersonForm';
-import { changeOpenModal } from '../../../store/slices';
+import TuneIcon from '@mui/icons-material/Tune';
+import CmpPersonsFilters from './CmpPersonsFilters';
+import { useDispatch, useSelector } from 'react-redux';
+import CmpPersonFormOnly from '../Forms/CmpPersonFormOnly';
 import CmpPersonMenuTable from '../Menus/CmpPersonMenuTable';
-import { RowPersonInterface } from '../Interfaces/PersonsInterfaces';
-import { Button, Card, CardContent, CardHeader, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { calculatePages } from '../../../helpers/calculatePages';
+import CustomNoRowsOverlay from '../../General/Views/CmpNoRowsTable';
+import { changeTablePersonParams } from '../../../store/slices/tables';
+import { useGetPersonsTableQuery } from '../../../store/apis/personsApi';
+import { changeOpenDrawer, changeOpenModal } from '../../../store/slices';
+import { Button, Card, CardContent, CardHeader, Pagination, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 const CmpPersons = () => {
     const dispatch = useDispatch();
-    const persons: RowPersonInterface[] = [
-        {
-            id: 0,
-            fullname: '',
-            first_surname: '',
-            second_surname: '',
-            birthdate: '',
-            curp: '',
-            rfc: '',
-            sex: '',
-            state_birth: ''
-        }
-    ];
+    const { table_persons } = useSelector((state: RootState) => state.tables);
+    const { data: persons } = useGetPersonsTableQuery(table_persons);
 
     const handleOpenCreateEmployee = () => {
         dispatch(changeOpenModal({
             args: {},
-            component: CmpPersonForm,
+            component: CmpPersonFormOnly,
             open: true,
             title: 'AGREGAR PERSONA'
         }));
+    };
+
+    const handleOpenFiltersEmployee = () => {
+        dispatch(changeOpenDrawer({
+            component: CmpPersonsFilters,
+            open: true,
+            title: 'AGREGAR PERSONA'
+        }));
+    };
+
+    const handleChangePage = (event: React.ChangeEvent<unknown>, page: number) => {
+        dispatch(changeTablePersonParams({ ...table_persons, page: page }));
     };
 
     return (
@@ -38,7 +45,7 @@ const CmpPersons = () => {
                 title={'Administrar personas.'}
                 subheader={
                     <Stack direction={'row'} justifyContent={'space-between'}>
-                        <Typography color={'text.secondary'} variant={'body2'} ></Typography>
+                        <Button startIcon={<TuneIcon />} variant={'outlined'} size={'small'} onClick={handleOpenFiltersEmployee}>Filtrar</Button>
                         <Button startIcon={<AddIcon />} variant={'outlined'} size={'small'} onClick={handleOpenCreateEmployee}>Agregar</Button>
                     </Stack>
                 }
@@ -52,21 +59,35 @@ const CmpPersons = () => {
                                 <TableCell>NOMBRE</TableCell>
                                 <TableCell>CURP</TableCell>
                                 <TableCell>RFC</TableCell>
-                                <TableCell>SEXO</TableCell>
+                                <TableCell>ESTADO</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {persons.map((person, i) => (
+                            {(persons && persons.data) ? persons.data.map((person, i) => (
                                 <TableRow key={`row-person-${i}`}>
                                     <TableCell style={{ width: '5%' }}><CmpPersonMenuTable row={person} /></TableCell>
-                                    <TableCell>{person.fullname}</TableCell>
+                                    <TableCell>{`${person.first_surname} ${person.second_surname} ${person.fullname}`}</TableCell>
                                     <TableCell>{person.curp}</TableCell>
                                     <TableCell>{person.rfc}</TableCell>
-                                    <TableCell>{person.sex}</TableCell>
+                                    <TableCell>{person.state_birth}</TableCell>
                                 </TableRow>
-                            ))}
+                            )) :
+                                <TableRow>
+                                    <TableCell colSpan={5}>
+                                        <CustomNoRowsOverlay />
+                                    </TableCell>
+                                </TableRow>
+                            }
                         </TableBody>
                     </Table>
+                    <Stack alignItems={'end'} sx={{ mt: 1 }}>
+                        <Pagination
+                            color={'primary'}
+                            onChange={handleChangePage}
+                            page={table_persons.page}
+                            count={calculatePages(persons ? persons.count : null, table_persons.page_size)}
+                        />
+                    </Stack>
                 </TableContainer>
             </CardContent>
         </Card>

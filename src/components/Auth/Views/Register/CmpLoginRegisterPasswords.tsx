@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { IconButton, Stack, TextField } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { RegisterUserInterface } from '../../../interfaces/auth/authInterfaces';
 import CmpLoginRegisterPasswordsValidate from './CmpLoginRegisterPasswordsValidate';
-import { RegisterUserErrorsInterface, ValidatePasswordInterface } from '../../../interfaces/auth/authErrorsInterfaces';
+import { RegisterUserErrorsInterface, RegisterUserInterface, ValidatePasswordInterface } from '../../Interfaces/authInterfaces';
 
 interface Props {
     errors: RegisterUserErrorsInterface;
@@ -11,7 +10,7 @@ interface Props {
     handleInputChange: (aditionalValue: string | number | undefined | null | any, name: keyof RegisterUserInterface) => void;
 }
 
-const CmpLoginRegisterPasswords = ({errors, values, handleInputChange}: Props) => {
+const CmpLoginRegisterPasswords = ({ errors, values, handleInputChange }: Props) => {
     const [openPassword, setOpenPassword] = useState(false);
 
     const validations: ValidatePasswordInterface = {

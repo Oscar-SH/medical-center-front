@@ -16,7 +16,7 @@ const CmpDoctorAlertForm = ({ args }: Props) => {
     const isRestore = args.action === 'RECUPERAR';
     const { refetch } = useGetDoctorsTableQuery({ id_doctor: -1 });
     const [deleteDoctor, { isError, isLoading, isSuccess }] = useDeleteDoctorMutation();
-    const [restoreDoctor] = useRestoreDoctorMutation();
+    const [restoreDoctor, { isError: isErrorR, isLoading: isLoadingR, isSuccess: isSuccessR }] = useRestoreDoctorMutation();
 
     const handleSubmit = () => {
         deleteDoctor(args.id)
@@ -56,7 +56,13 @@ const CmpDoctorAlertForm = ({ args }: Props) => {
                     ¿Está seguro de <b>{args.action}</b> a este medico?.
                 </Alert>
             </CardContent>
-            <CmpGeneralModalActions handleSubmit={isRestore ? handleSubmitRestore : handleSubmit} />
+            <CmpGeneralModalActions
+                btnText={'Confirmar'}
+                error={isRestore ? isErrorR : isError}
+                loading={isRestore ? isLoadingR : isLoading}
+                success={isRestore ? isSuccessR : isSuccess}
+                handleSubmit={isRestore ? handleSubmitRestore : handleSubmit}
+            />
         </Stack>
     );
 };

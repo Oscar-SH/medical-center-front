@@ -1,5 +1,5 @@
 import React from 'react';
-import { PagesPropsInterface } from '../interfaces/pages/PagesInterface';
+import { PagesPropsInterface } from '../interfaces/PagesInterface';
 
 const HomePage = ({ children: CmpComponent, ...rest }: PagesPropsInterface) => {
     return (

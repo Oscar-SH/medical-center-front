@@ -24,7 +24,7 @@ const CmpDoctorForm = ({ args }: Props) => {
     const { values, handleInputChange } = useForm(initDoctorInterface);
     const { data: dataDoctor } = useFindDoctorQueryQuery({ id: args.id ?? -1 });
     const [saveDoctor, { isError, isLoading, isSuccess }] = useCreateDoctorMutation();
-    const [updateDoctor, { isError: isErrorU }] = useUpdateDoctorMutation();
+    const [updateDoctor, { isError: isErrorU, isLoading: isLoadingU, isSuccess: isSuccessU }] = useUpdateDoctorMutation();
 
     useEffect(() => {
         const indexes = Object.keys(values) as (keyof CreateDoctorInterface)[];
@@ -66,6 +66,9 @@ const CmpDoctorForm = ({ args }: Props) => {
         }
     };
 
+    console.log(args.id);
+    
+
     return (
         <Stack>
             <CardContent>
@@ -85,7 +88,13 @@ const CmpDoctorForm = ({ args }: Props) => {
                     />
                 </Stack>
             </CardContent>
-            <CmpGeneralModalActions handleSubmit={isEdit ? handleSubmitEdit : handleSubmit} />
+            <CmpGeneralModalActions
+                btnText={'Confirmar'}
+                error={isEdit ? isErrorU : isError}
+                loading={isEdit ? isLoadingU : isLoading}
+                success={isEdit ? isSuccessU : isSuccess}
+                handleSubmit={isEdit ? handleSubmitEdit : handleSubmit}
+            />
         </Stack>
     );
 };
