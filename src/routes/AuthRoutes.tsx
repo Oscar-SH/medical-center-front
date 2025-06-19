@@ -1,4 +1,3 @@
-import React from 'react';
 import LoginPage from '../pages/LoginPage';
 import { RouteObject } from 'react-router-dom';
 import CmpAuthLogin from '../components/Auth/Views/Login/CmpAuthLogin';

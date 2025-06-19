@@ -1,4 +1,4 @@
-import { GeneralDrawerInterface, GeneralModalInterface } from "../../components/General/Interfaces/GeneralInterfaces";
+import { GeneralDrawerInterface, GeneralModalInterface } from "../../components/General/Interfaces";
 
 export interface UiStateInterface {
     sideBar: boolean;

@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useDispatch } from 'react-redux';
 import useForm from '../../../../hooks/useForm';
-import { login } from '../../../../store/slices';
-import { useNavigate } from 'react-router-dom';
+import { loginSlice } from '../../../../store/slices';
+import { useLoginMutation } from '../../../../store/apis';
 import { validateLoginForm } from '../../Helpers/loginHelper';
-import { initLoginUserErrorsInterface, initLoginUserInterface } from '../../Interfaces/initAuthInterfaces';
-import { TextField, Button, Typography, Container, Stack,  Box, Card, CardContent, CardHeader } from "@mui/material";
+import { initLoginUserErrorsInterface, initLoginUserInterface } from '../../Interfaces';
+import { TextField, Button, Container, Stack, Card, CardContent, CardHeader } from "@mui/material";
 
 const CmpAuthLoginForm = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const [loginMutation] = useLoginMutation();
     const { enqueueSnackbar } = useSnackbar();
     const [errors, setErrors] = useState(initLoginUserErrorsInterface);
     const { values, handleInputChange } = useForm(initLoginUserInterface);
@@ -20,25 +20,22 @@ const CmpAuthLoginForm = () => {
         const { isOK, valuesErrors } = validateLoginForm(values);
         setErrors(valuesErrors);
         if (isOK) {
-            navigate('/dashboard');
-            dispatch(login({ name: values.user, id: 1 }));
-            enqueueSnackbar('Redireccionando a dashboard.', { variant: 'success' });
-        } else {
-            enqueueSnackbar('Error: Credenciales invalidas.', { variant: 'error' });
+            loginMutation(values).then((res) => {
+                if (res.error) {
+                    enqueueSnackbar('Error: Credenciales invalidas.', { variant: 'error' });
+                } else if (res.data) {
+                    window.location.reload();
+                    dispatch(loginSlice(res.data.data));
+                    enqueueSnackbar('Redireccionando a dashboard.', { variant: 'success' });
+                }
+            });
         }
     };
 
     return (
         <Container maxWidth={'sm'}>
             <Card >
-                <CardHeader
-                    title={'Iniciar Sesión.'}
-                    subheader={
-                        <Typography color={'text.secondary'} variant={'body2'} >
-                            ¿No tienes cuenta aún? <a href={'/register'}>Regístrate.</a>
-                        </Typography>
-                    }
-                />
+                <CardHeader title={'Iniciar Sesión.'} />
                 <CardContent>
                     <form onSubmit={handleSubmit}>
                         <Stack spacing={3}>
@@ -63,9 +60,6 @@ const CmpAuthLoginForm = () => {
                                 helperText={errors.password.error && errors.password.msg}
                             />
                             <Button fullWidth size={'large'} type={'submit'} variant={'contained'}> Ingresar </Button>
-                            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                                <a href={'/forgot_password'}>¿Olvidaste tu contraseña?</a>
-                            </Box>
                         </Stack>
                     </form>
                 </CardContent>

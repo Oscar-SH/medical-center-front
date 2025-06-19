@@ -1,6 +1,5 @@
 import { validateNullStrings } from '../../../helpers/validateDataByIndex';
-import { ErrorsPersonInterface, PersonInterface } from '../Interfaces/PersonsInterfaces';
-import { initErrorsPersonInterface, msgsErrorsPersonInterface } from '../Interfaces/initPersonsInterfaces';
+import { PersonInterface, initErrorsPersonInterface, ErrorsPersonInterface, msgsErrorsPersonInterface } from '../Interfaces';
 
 export const validatePersonForm = (values: PersonInterface) => {
     let counter = 0;

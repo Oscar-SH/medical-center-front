@@ -1,17 +1,17 @@
-import { GeneralPropsErrorInterface } from '../../General/Interfaces/GeneralInterfaces';
-import { ErrorsPersonInterface, PersonInterface } from '../../Persons/Interfaces/PersonsInterfaces';
+import { TablesPropsInterface } from "../../../interfaces";
+import { GeneralPropsErrorInterface } from "../../General/Interfaces";
+import { PersonInterface, ErrorsPersonInterface } from "../../Persons/Interfaces";
 
-export interface DoctorInterface{
+
+export interface DoctorInterface {
     id_person?: number;
     observations: string;
     professional_license: string;
 }
 
-export interface ErrorsDoctorInterface{
-    professional_license: GeneralPropsErrorInterface;
-}
+export interface ErrorsDoctorInterface { professional_license: GeneralPropsErrorInterface; }
 
-export interface RowDoctorInterface extends DoctorInterface{
+export interface RowDoctorInterface extends DoctorInterface {
     id: number;
     matricula: number;
     created_at: string;
@@ -20,20 +20,17 @@ export interface RowDoctorInterface extends DoctorInterface{
     fullperson: string;
 }
 
-export interface CreateDoctorInterface extends PersonInterface, DoctorInterface {}
+export interface CreateDoctorInterface extends PersonInterface, DoctorInterface { }
 
-export interface UpdateDoctorInterface extends CreateDoctorInterface {
-    id: number;
-    id_person: number;
-}
+export interface UpdateDoctorInterface extends CreateDoctorInterface { id: number; }
 
-export interface ErrorsCreateDoctorInterface extends ErrorsPersonInterface, ErrorsDoctorInterface {}
+export interface ErrorsCreateDoctorInterface extends ErrorsPersonInterface, ErrorsDoctorInterface { }
 
-export interface ResponseDoctorsInterface{
+export interface ResponseDoctorsInterface {
     count: number;
     data: RowDoctorInterface[];
 }
 
-export interface ResponseFindDoctorInterface{
-    data: CreateDoctorInterface;
-}
+export interface ResponseFindDoctorInterface { data: CreateDoctorInterface; }
+
+export interface ParamsDoctorInterface extends TablesPropsInterface { isActives: boolean; }

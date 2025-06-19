@@ -1,4 +1,4 @@
-import { ThemeConfig } from '../interfaces/ConfigInterface';
+import { ThemeConfig } from '../components/Config/Interfaces';
 import { createOptions as createBaseOptions } from './base/create-options';
 import { createOptions as createDarkOptions } from './dark/create-options';
 import { createOptions as createLightOptions } from './light/create-options';

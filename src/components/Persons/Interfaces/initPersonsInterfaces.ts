@@ -1,5 +1,5 @@
-import { initGeneralPropsErrorInterface } from '../../General/Interfaces/initGeneralInterfaces';
-import { PersonInterface, ErrorsPersonInterface, ParamsPersonInterface } from './PersonsInterfaces';
+import { initGeneralPropsErrorInterface } from '../../General/Interfaces';
+import { PersonInterface, ErrorsPersonInterface, ParamsPersonInterface } from '.';
 
 export const initPersonInterface: PersonInterface = {
     fullname: '',

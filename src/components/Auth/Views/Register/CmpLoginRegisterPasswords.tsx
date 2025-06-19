@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IconButton, Stack, TextField } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import CmpLoginRegisterPasswordsValidate from './CmpLoginRegisterPasswordsValidate';
-import { RegisterUserErrorsInterface, RegisterUserInterface, ValidatePasswordInterface } from '../../Interfaces/authInterfaces';
+import { RegisterUserErrorsInterface, RegisterUserInterface, ValidatePasswordInterface } from '../../Interfaces';
 
 interface Props {
     errors: RegisterUserErrorsInterface;

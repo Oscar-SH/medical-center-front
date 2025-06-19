@@ -1,30 +1,33 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserStateInterface } from '../../../components/Auth/Interfaces/authInterfaces';
-import { initAuthStateInterface } from '../../../components/Auth/Interfaces/initAuthInterfaces';
+import { RowUserInterface } from '../../../components/Users/Interfaces';
+import { initAuthStateInterface } from '../../../components/Auth/Interfaces';
 
 const authSlice = createSlice({
     name: 'auth',
     initialState: initAuthStateInterface,
     reducers: {
-        login: (state, action: PayloadAction<UserStateInterface | null>) => {
-            localStorage.setItem('inLine', 'true');
+        loginSlice: (state, action: PayloadAction<RowUserInterface | null>) => {
             state.user = action.payload;
+            localStorage.setItem('jwt', state.user?.jwt ?? '');
         },
         logout: (state) => {
-            localStorage.clear();
             state.user = null;
-            state.isAuthenticated = false;
+            localStorage.clear();
         },
-        changeInLineStatus: (state, action: PayloadAction<boolean>) => {
-            state.isAuthenticated = action.payload;
+        setUserInfo: (state, action: PayloadAction<RowUserInterface | null>) => {
+            state.user = action.payload;
+        },
+        changeLoadingAction: (state, action: PayloadAction<boolean>) => {
+            state.isLoading = action.payload;
         }
     }
 });
 
 export const {
-    login,
+    loginSlice,
     logout,
-    changeInLineStatus
+    setUserInfo,
+    changeLoadingAction
 } = authSlice.actions;
 
 export default authSlice.reducer;

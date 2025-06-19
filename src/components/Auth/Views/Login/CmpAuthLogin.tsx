@@ -1,4 +1,3 @@
-import React from 'react';
 import { Grid2 as Grid } from "@mui/material";
 import CmpAuthLoginForm from './CmpAuthLoginForm';
 import CmpAuthLoginWelcome from './CmpAuthLoginWelcome';

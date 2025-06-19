@@ -1,5 +1,5 @@
-import { ThemeConfig } from '../ConfigInterface';
 import { UiStateInterface } from './UIInterfaces';
+import { ThemeConfig } from '../../components/Config/Interfaces';
 
 const savedTheme = localStorage.getItem('theme');
 

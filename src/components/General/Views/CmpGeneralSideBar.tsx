@@ -1,6 +1,5 @@
-import React from 'react';
-import { RootState } from '../../../store';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { RootStateInterface } from '../../../store';
 import { ChevronLeft } from '@mui/icons-material';
 import { handleSideBar } from '../../../store/slices';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,12 +8,9 @@ import { Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIc
 
 const CmpGeneralSideBar = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const { sideBar } = useSelector((state: RootState) => state.ui);
+    const { sideBar } = useSelector((state: RootStateInterface) => state.ui);
 
     const handleCloseSidebar = () => { dispatch(handleSideBar(false)); };
-
-    const handleSwitchRoute = (route: string) => { navigate(route) };
 
     return (
         <Drawer open={sideBar} onClose={handleCloseSidebar}>
@@ -26,7 +22,7 @@ const CmpGeneralSideBar = () => {
             <List>
                 {navBarItems.map((item, index) => (
                     <ListItem key={`navitem-${index}`} disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton onClick={() => handleSwitchRoute(item.route)}>
+                        <ListItemButton component={Link} to={item.route} onClick={handleCloseSidebar}>
                             <ListItemIcon> <item.icon /> </ListItemIcon>
                             <ListItemText primary={item.label} />
                         </ListItemButton>

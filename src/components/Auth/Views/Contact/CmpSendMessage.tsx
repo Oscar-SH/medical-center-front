@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 import useForm from '../../../../hooks/useForm';
 import { validateContactUsForm } from '../../Helpers/contactUsHelper';
+import { initContactUsErrorsInterface, initContactUsInterface } from '../../../Auth/Interfaces';
 import { Button, Card, CardContent, CardHeader, Container, Stack, TextField, Typography } from '@mui/material';
-import { initContactUsErrorsInterface, initContactUsInterface } from '../../../Auth/Interfaces/initAuthInterfaces';
 
 const CmpSendMessage = () => {
     const { enqueueSnackbar } = useSnackbar();

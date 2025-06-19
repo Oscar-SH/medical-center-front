@@ -1,5 +1,4 @@
-import React from 'react';
-import { RootState } from '../../../store';
+import { RootStateInterface } from '../../../store';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeGeneralDrawer } from '../../../store/slices';
@@ -7,7 +6,7 @@ import { Card, CardContent, Divider, Drawer, IconButton, Stack, Typography } fro
 
 const CmpGeneralDrawer = () => {
     const dispatch = useDispatch();
-    const { component: Cmp, open, title } = useSelector((state: RootState) => state.ui.openDrawer);
+    const { component: Cmp, open, title } = useSelector((state: RootStateInterface) => state.ui.openDrawer);
 
     const handleClose = () => { dispatch(closeGeneralDrawer()); };
 

@@ -1,5 +1,5 @@
-import { EmployeeInterface, ErrorsEmployeeInterface } from './EmployeesInterfaces';
-import { initGeneralPropsErrorInterface } from '../../General/Interfaces/initGeneralInterfaces';
+import { EmployeeInterface, ErrorsEmployeeInterface } from '.';
+import { initGeneralPropsErrorInterface } from '../../General/Interfaces';
 
 export const initEmployeeInterface: EmployeeInterface ={
     id_person: -1,

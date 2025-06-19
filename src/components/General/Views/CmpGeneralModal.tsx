@@ -1,12 +1,11 @@
-import React from 'react'
-import { RootState } from '../../../store';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootStateInterface } from '../../../store';
 import { Dialog, DialogTitle } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeGeneralModal } from '../../../store/slices';
 
 const CmpGeneralModal = () => {
     const dispatch = useDispatch();
-    const { args, component: Cmp, open, title, width } = useSelector((state: RootState) => state.ui.openModal);
+    const { args, component: Cmp, open, title, width } = useSelector((state: RootStateInterface) => state.ui.openModal);
 
     const handleCloseModal = () => {
         dispatch(closeGeneralModal());

@@ -1,6 +1,6 @@
 import { alpha } from '@mui/system/colorManipulator';
-import { ColorAlphasTypes } from '../interfaces/ConfigInterface';
 import { PaletteRange } from '@mui/material/styles/createPalette';
+import { ColorAlphasTypes } from '../components/Config/Interfaces';
 
 const withAlphas = (color: ColorAlphasTypes) => {
     return {

@@ -1,4 +1,4 @@
-import { GeneralPropsErrorInterface } from '../../General/Interfaces/GeneralInterfaces';
+import { GeneralPropsErrorInterface } from '../../General/Interfaces';
 
 export interface EmployeeInterface{
     id_person: number;

@@ -1,6 +1,4 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import { success } from '../../../theme/colors';
 import SaveIcon from '@mui/icons-material/Save';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';

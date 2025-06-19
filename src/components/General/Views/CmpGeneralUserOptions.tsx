@@ -1,6 +1,5 @@
 import React from 'react';
-import { RootState } from '../../../store';
-import { useNavigate } from 'react-router-dom';
+import { RootStateInterface } from '../../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme, logout } from '../../../store/slices';
 import { Brightness4, Brightness7, Settings, Logout } from '@mui/icons-material';
@@ -13,10 +12,9 @@ interface Props {
 
 const CmpGeneralUserOptions = ({ anchorEl, setAnchorEl }: Props) => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const open = Boolean(anchorEl);
     const savedTheme = localStorage.getItem('theme');
-    const { darkMode } = useSelector((state: RootState) => state.ui);
+    const { darkMode } = useSelector((state: RootStateInterface) => state.ui);
 
     const handleClose = () => { setAnchorEl(null); };
 
@@ -24,7 +22,7 @@ const CmpGeneralUserOptions = ({ anchorEl, setAnchorEl }: Props) => {
 
     const logoutSession = () => {
         dispatch(logout());
-        navigate('/login');
+        window.location.reload();
     };
 
     const handleChangeTheme = () => { dispatch(changeTheme(savedTheme !== 'dark')); };

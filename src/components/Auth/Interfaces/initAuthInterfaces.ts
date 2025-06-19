@@ -1,9 +1,10 @@
-import { initGeneralPropsErrorInterface } from "../../General/Interfaces/initGeneralInterfaces";
-import { AuthStateInterface, ContactUsErrorsInterface, ContactUsInterface, LoginUserErrorsInterface, LoginUserInterface, RegisterUserErrorsInterface, RegisterUserInterface } from "./authInterfaces";
+import { initGeneralPropsErrorInterface } from "../../General/Interfaces";
+import { AuthStateInterface, ContactUsErrorsInterface, ContactUsInterface, LoginUserErrorsInterface, LoginUserInterface, RegisterUserErrorsInterface, RegisterUserInterface } from ".";
 
 export const initAuthStateInterface: AuthStateInterface = {
     user: null,
-    isAuthenticated: false
+    isLoading: true,
+    isActive: true
 };
 
 export const initLoginUserInterface: LoginUserInterface = {

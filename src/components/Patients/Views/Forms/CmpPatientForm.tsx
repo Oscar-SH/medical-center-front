@@ -1,0 +1,46 @@
+
+import { RowEmployeeInterface } from '../../Interfaces';
+import { Autocomplete, CardContent, Stack, TextField } from '@mui/material';
+
+interface Props {
+    args: RowEmployeeInterface;
+}
+
+const CmpPatientForm = ({ args }: Props) => {
+    const isEdit = Object.entries(args).length > 0;
+
+    // const {} = useForm
+    return (
+        <Stack>
+            <CardContent>
+                <form>
+                    <Stack spacing={2}>
+                        <Stack direction={'row'} justifyContent={'space-between'} spacing={2}>
+                            <Autocomplete
+                                fullWidth
+                                disabled={isEdit}
+                                options={[]}
+                                renderInput={(props) =>
+                                    < TextField
+                                        {...props}
+                                        label={'Persona'}
+                                    />
+                                }
+                            />
+                            <TextField
+                                fullWidth
+                                label={'Cedula profesional'}
+                            />
+                        </Stack>
+                        <TextField
+                            label={'Observaciones'}
+                        />
+                    </Stack>
+                </form>
+            </CardContent>
+            {/* <CmpGeneralModalActions /> */}
+        </Stack>
+    );
+};
+
+export default CmpPatientForm;

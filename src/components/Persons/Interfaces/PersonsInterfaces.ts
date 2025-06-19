@@ -1,4 +1,5 @@
-import { GeneralPropsErrorInterface } from '../../General/Interfaces/GeneralInterfaces';
+import { TablesPropsInterface } from '../../../interfaces';
+import { GeneralPropsErrorInterface } from '../../General/Interfaces';
 
 export interface PersonInterface {
     fullname: string;
@@ -27,23 +28,15 @@ export interface RowPersonInterface extends PersonInterface {
     created_at: string;
     updated_at: string;
     deleted_at?: string;
+    id_doctor: number | null;
 }
-export interface UpdatePersonInterface extends PersonInterface {
-    id: number;
-}
+export interface UpdatePersonInterface extends PersonInterface { id: number; }
 
 export interface ResponsePersonInterface {
     count: number;
     data: RowPersonInterface[];
 }
 
-export interface ResponseFindPersonInterface {
-    data: PersonInterface;
-}
+export interface ResponseFindPersonInterface { data: PersonInterface; }
 
-export interface ParamsPersonInterface {
-    page: number;
-    text: string;
-    page_size: number;
-    isActives: boolean;
-}
+export interface ParamsPersonInterface extends TablesPropsInterface { isActives: boolean; }

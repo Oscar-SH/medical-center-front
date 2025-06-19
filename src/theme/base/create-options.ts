@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material'
 import { createComponents } from './create-components';
 import { createTypography } from './create-typography';
-import { ThemeConfig } from '../../interfaces/ConfigInterface';
+import { ThemeConfig } from '../../components/Config/Interfaces';
 
 export const createOptions = (config: ThemeConfig): ThemeOptions => {
     return {

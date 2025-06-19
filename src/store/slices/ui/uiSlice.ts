@@ -1,6 +1,6 @@
+import { initUiStateInterface } from '../../../interfaces';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initUiStateInterface } from '../../../interfaces/Redux/initUiInterfaces';
-import { GeneralDrawerInterface, GeneralModalInterface } from '../../../components/General/Interfaces/GeneralInterfaces';
+import { GeneralDrawerInterface, GeneralModalInterface } from '../../../components/General/Interfaces';
 
 const uiSlice = createSlice({
     name: 'ui',

@@ -1,5 +1,4 @@
-import { ContactUsInterface } from "../Interfaces/authInterfaces";
-import { initContactUsErrorsInterface } from "../Interfaces/initAuthInterfaces";
+import { ContactUsInterface, initContactUsErrorsInterface } from "../Interfaces";
 
 export const validateContactUsForm = (values: ContactUsInterface) => {
     let counter = 0;

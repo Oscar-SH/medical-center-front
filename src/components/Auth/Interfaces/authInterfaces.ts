@@ -1,13 +1,11 @@
-import { GeneralPropsErrorInterface } from "../../General/Interfaces/GeneralInterfaces";
+import { RowUserInterface } from "../../Users/Interfaces";
+import { GeneralPropsErrorInterface } from "../../General/Interfaces";
 
-export interface UserStateInterface {
-    id: number;
-    name: string;
-}
 
 export interface AuthStateInterface {
-    user: UserStateInterface | null;
-    isAuthenticated: boolean;
+    isActive: boolean;
+    isLoading: boolean;
+    user: RowUserInterface | null;
 }
 
 export interface ContactUsInterface {

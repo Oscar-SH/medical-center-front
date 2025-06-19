@@ -1,10 +1,12 @@
-import React from 'react';
 import { Stack } from '@mui/material';
+import { useSelector } from 'react-redux';
+import CmpHeartLoading from './CmpHeartLoading';
 import CmpGeneralModal from './CmpGeneralModal';
+import CmpGeneralDrawer from './CmpGeneralDrawer';
 import CmpGeneralSideBar from './CmpGeneralSideBar';
 import CmpGeneralToolbar from './CmpGeneralToolbar';
-import { PagesPropsInterface } from '../../../interfaces/PagesInterface';
-import CmpGeneralDrawer from './CmpGeneralDrawer';
+import { RootStateInterface } from '../../../store';
+import { PagesPropsInterface } from '../../../interfaces';
 
 interface Props {
     children: () => JSX.Element;
@@ -12,6 +14,11 @@ interface Props {
 }
 
 const CmpGeneralLayout = ({ page: CmpComponent, ...rest }: Props) => {
+    const { isLoading } = useSelector((state: RootStateInterface) => state.auth);
+
+    if (isLoading) {
+        return (<CmpHeartLoading />);
+    }
 
     return (
         <Stack flexGrow={1} sx={{ p: 2 }}>
