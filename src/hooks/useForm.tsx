@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const useForm = <T extends Object>(initialState: T) => {
     const [values, setValues] = useState(initialState);
 
-    const handleInputChange = (aditionalValue: string | number | undefined | null | any, name: keyof T): void => {
-        setValues((prevValues) => ({ ...prevValues, [name]: aditionalValue }));
+    const handleInputChange = (value: T[keyof T], name: keyof T): void => {
+        setValues((prevValues) => ({ ...prevValues, [name]: value }));
     };
 
     const reset = () => { setValues(initialState); };

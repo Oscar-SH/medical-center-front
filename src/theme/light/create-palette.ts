@@ -1,7 +1,7 @@
 import { getPrimary } from '../utils';
 import { common } from '@mui/material/colors';
 import { alpha } from '@mui/system/colorManipulator';
-import { ThemeConfig } from '../../interfaces/ui/uiInterfaces';
+import { ThemeConfig } from '../../components/Config/Interfaces';
 import { error, info, neutral, success, warning } from '../colors';
 
 export const createPalette = (config: ThemeConfig) => {

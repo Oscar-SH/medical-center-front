@@ -1,12 +1,11 @@
-import React from 'react';
 import LoginPage from '../pages/LoginPage';
 import { RouteObject } from 'react-router-dom';
-import CmpAuthLogin from '../components/Auth/CmpAuthLogin';
-import CmpGeneralLayout from '../components/General/CmpGeneralLayout';
-import CmpSendMessage from '../components/General/Contact/CmpSendMessage';
-import CmpLoginRegister from '../components/Auth/Register/CmpLoginRegister';
-import CmpForgotPassword from '../components/Auth/ForgotPassword/CmpForgotPassword';
-import CmpForgotPasswordEnterCode from '../components/Auth/ForgotPassword/CmpForgotPasswordEnterCode';
+import CmpAuthLogin from '../components/Auth/Views/Login/CmpAuthLogin';
+import CmpGeneralLayout from '../components/General/Views/CmpGeneralLayout';
+import CmpSendMessage from '../components/Auth/Views/Contact/CmpSendMessage';
+import CmpLoginRegister from '../components/Auth/Views/Register/CmpLoginRegister';
+import CmpForgotPassword from '../components/Auth/Views/ForgotPassword/CmpForgotPassword';
+import CmpForgotPasswordEnterCode from '../components/Auth/Views/ForgotPassword/CmpForgotPasswordEnterCode';
 
 const authRoutes: RouteObject[] = [
     {

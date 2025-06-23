@@ -1,35 +1,33 @@
-import { RootState } from '../store';
+import { useEffect } from 'react';
 import { createTheme } from '../theme';
-import React, { useEffect } from 'react';
 import publicRoutes from './PublicRoutes';
 import privateRoutes from './PrivateRoutes';
 import { SnackbarProvider } from 'notistack';
 import { globalStyles } from '../theme/styles';
 import { ThemeProvider } from '@emotion/react';
+import { initThemeConfig } from '../interfaces';
 import { RouterProvider } from "react-router-dom";
+import { startCheckState } from '../store/slices';
 import { useDispatch, useSelector } from 'react-redux';
-import { CssBaseline, GlobalStyles, Stack } from '@mui/material';
-import { changeInLineStatus, changeTheme } from '../store/slices';
-import { initThemeConfig } from '../interfaces/ui/initUiInterfaces';
+import { CssBaseline, GlobalStyles } from '@mui/material';
+import { AppDispatch, RootStateInterface } from '../store';
 
 const AppRouter = () => {
-    const dispatch = useDispatch();
-    const inLine = localStorage.getItem('inLine') ?? 'false';
+    let jwt = localStorage.getItem('jwt');
+    const dispatch = useDispatch<AppDispatch>();
     const savedTheme = localStorage.getItem('theme') ?? 'ligth';
-    const { darkMode } = useSelector((state: RootState) => state.ui);
-    const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+    const { darkMode } = useSelector((state: RootStateInterface) => state.ui);
 
     useEffect(() => {
-        dispatch(changeTheme(savedTheme === 'dark'));
-        dispatch(changeInLineStatus(inLine === 'true'));
-    }, [inLine, savedTheme]);
+        dispatch(startCheckState());
+    }, [dispatch]);
 
     return (
-        <ThemeProvider theme={createTheme(initThemeConfig(darkMode))}>
+        <ThemeProvider theme={createTheme(initThemeConfig(savedTheme === 'dark'))}>
             <SnackbarProvider maxSnack={3}>
                 <CssBaseline />
                 <GlobalStyles styles={globalStyles(darkMode)} />
-                <RouterProvider router={isAuthenticated ? privateRoutes : publicRoutes} />
+                <RouterProvider router={jwt ? privateRoutes : publicRoutes} />
             </SnackbarProvider>
         </ThemeProvider>
     );

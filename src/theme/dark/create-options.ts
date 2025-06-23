@@ -1,7 +1,7 @@
 import { createPalette } from './create-palette';
 import { createShadows } from './create-shadows';
 import { createComponents } from './create-components';
-import { ThemeConfig } from '../../interfaces/ui/uiInterfaces';
+import { ThemeConfig } from '../../components/Config/Interfaces';
 
 export const createOptions = (config: ThemeConfig) => {
     const palette = createPalette(config);

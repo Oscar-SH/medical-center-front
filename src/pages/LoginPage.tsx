@@ -1,5 +1,4 @@
-import React from 'react';
-import { PagesPropsInterface } from '../interfaces/pages/PagesInterface';
+import { PagesPropsInterface } from '../interfaces';
 
 const LoginPage = ({ children: CmpComponent, ...rest }: PagesPropsInterface) => {
     return (

@@ -1,8 +1,4 @@
-import type { ColorScheme } from './types';
-import type { ColorSystemOptions } from '@mui/material/styles';
 import { california, kepple, neonBlue, nevada, redOrange, shakespeare, stormGrey } from '../colors';
-
-
 
 export const colorSchemes : any = {
   dark: {
