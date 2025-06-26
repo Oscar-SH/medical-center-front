@@ -1,6 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { userInfoRequest } from '../../../services/AuthService';
-import { changeLoadingAction, logout, setUserInfo } from './authSlice';
+import { loadPermissionsRequest, userInfoRequest } from '../../../services/AuthService';
+import { changeLoadingAction, logout, setPermissionsUser, setUserInfo } from './authSlice';
 
 export const startCheckState = () => {
     return async (dispatch: Dispatch) => {
@@ -17,6 +17,19 @@ export const startCheckState = () => {
         catch (err) {
             console.error(err);
             dispatch(changeLoadingAction(false));
+        }
+    };
+};
+
+export const loadPermissions = (id: number, id_clinic: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            const resp = await loadPermissionsRequest(id, id_clinic);
+            dispatch(setPermissionsUser(resp.data));
+        }
+        catch (err) {
+            console.error(err);
+            dispatch(setPermissionsUser({ permissions: [], roles: [] }));
         }
     };
 };

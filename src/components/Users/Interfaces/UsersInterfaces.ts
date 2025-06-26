@@ -1,4 +1,5 @@
 import { TablesPropsInterface } from "../../../interfaces";
+import { RowCatClinicInterface } from "../../Clinics/Interfaces";
 import { GeneralPropsErrorInterface } from "../../General/Interfaces";
 import { DoctorInterface, ErrorsDoctorInterface } from "../../Doctors/Interfaces";
 
@@ -34,13 +35,19 @@ export interface ResponseUserInterface {
 
 export interface ResponseFindUserInterface { data: RowUserInterface; }
 
-export interface PrivilegesInterface{
+export interface PrivilegesInterface {
     clinic: number;
     roles: number[];
     permissions: number[];
 }
 
-export interface AddPrivilegesInterface{
+export interface AddPrivilegesInterface {
     id_user: number;
     privileges: PrivilegesInterface[];
+}
+
+export interface InfoUserInterface extends RowUserInterface {
+    roles: string[];
+    permissions: string[];
+    clinics: RowCatClinicInterface[];
 }

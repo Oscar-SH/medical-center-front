@@ -5,11 +5,13 @@ export const navBarItems: NavBarItemProps[] = [
     {
         icon: Accessibility,
         label: 'Pacientes',
-        route: '/patients'
+        route: '/patients',
+        permission: 'ver_paciente'
     },
     {
         icon: Settings,
         label: 'Configuracion',
-        route: '/config'
+        route: '/config',
+        permission: 'admin_ti'
     }
 ];

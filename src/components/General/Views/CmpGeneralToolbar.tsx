@@ -11,7 +11,7 @@ import { Avatar, Box, IconButton, Stack, Typography } from '@mui/material';
 const CmpGeneralToolbar = () => {
     const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const { user } = useSelector((state: RootStateInterface) => state.auth);
+    const { user, clinicActive } = useSelector((state: RootStateInterface) => state.auth);
 
     const handleOpenSidebar = () => { dispatch(handleSideBar(true)); };
 
@@ -19,7 +19,7 @@ const CmpGeneralToolbar = () => {
         <Box>
             <Stack direction={'row'} alignItems={'center'} sx={{ flexGrow: 1 }} justifyContent={'space-between'}>
                 <Stack direction={'row'} alignItems={'center'}>
-                    {user &&
+                    {clinicActive > 0 &&
                         <IconButton size={'large'} color={'inherit'} edge={'start'} onClick={handleOpenSidebar}>
                             <MenuIcon />
                         </IconButton>

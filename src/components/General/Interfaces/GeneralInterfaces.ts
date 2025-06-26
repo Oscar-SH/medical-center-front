@@ -4,6 +4,7 @@ import { OverridableComponent } from "@mui/material/OverridableComponent";
 export interface NavBarItemProps {
     label: string;
     route: string;
+    permission: string;
     icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & { muiName: string; };
 }
 
@@ -21,9 +22,7 @@ export interface GeneralModalInterface {
 }
 
 export interface GeneralDrawerInterface {
-    // args: Object;
     open: boolean;
     title: string;
-    // width?: Breakpoint;
     component: React.FunctionComponent<any> | null;
 }

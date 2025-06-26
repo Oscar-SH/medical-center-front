@@ -1,11 +1,12 @@
-import { RowUserInterface } from "../../Users/Interfaces";
+import { InfoUserInterface } from "../../Users/Interfaces";
 import { GeneralPropsErrorInterface } from "../../General/Interfaces";
 
 
 export interface AuthStateInterface {
     isActive: boolean;
     isLoading: boolean;
-    user: RowUserInterface | null;
+    clinicActive: number;
+    user: InfoUserInterface | null;
 }
 
 export interface ContactUsInterface {

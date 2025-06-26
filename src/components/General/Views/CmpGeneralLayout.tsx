@@ -16,9 +16,7 @@ interface Props {
 const CmpGeneralLayout = ({ page: CmpComponent, ...rest }: Props) => {
     const { isLoading } = useSelector((state: RootStateInterface) => state.auth);
 
-    if (isLoading) {
-        return (<CmpHeartLoading />);
-    }
+    if (isLoading) return (<CmpHeartLoading />);
 
     return (
         <Stack flexGrow={1} sx={{ p: 2 }}>

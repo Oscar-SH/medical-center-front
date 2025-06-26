@@ -4,7 +4,8 @@ import { AuthStateInterface, ContactUsErrorsInterface, ContactUsInterface, Login
 export const initAuthStateInterface: AuthStateInterface = {
     user: null,
     isLoading: true,
-    isActive: true
+    isActive: true,
+    clinicActive: -1
 };
 
 export const initLoginUserInterface: LoginUserInterface = {

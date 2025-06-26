@@ -1,12 +1,12 @@
 import { LoginUserInterface } from '../../components/Auth/Interfaces';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ResponseFindUserInterface } from '../../components/Users/Interfaces';
+import { InfoUserInterface } from '../../components/Users/Interfaces';
 
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_MEDICAL_CENTER_API}/` }),
     endpoints: (builder) => ({
-        login: builder.mutation<ResponseFindUserInterface, LoginUserInterface>({
+        login: builder.mutation<{ data: InfoUserInterface }, LoginUserInterface>({
             query: (data) => ({
                 url: 'login',
                 method: 'POST',
